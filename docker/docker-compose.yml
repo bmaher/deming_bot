@@ -1,0 +1,8 @@
+environment:
+  image: brianmaher/deming_bot
+  command: bash -c "nginx && cd /app; npm install; node app.js"
+  ports:
+    - "8080:80"
+    - "443:443"
+    volumes:
+      - ../app:/app
