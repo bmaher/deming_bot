@@ -1,8 +1,9 @@
 environment:
   image: brianmaher/deming_bot
-  command: bash -c "nginx && cd /app; npm install; node app.js"
+  command: nginx
   ports:
     - "8080:80"
     - "443:443"
-    volumes:
+  volumes:
       - ../app:/app
+      - /etc/letsencrypt:/etc/letsencrypt
