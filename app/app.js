@@ -34,7 +34,14 @@ const errorMessage = '"A good system will beat a bad query every time." - Deming
 
 function sendReply (str) {
   console.log(`Sending reply: ${str}`)
-  result.send(str)
+  result.contentType('application/json')
+  result.send(buildJSON(str))
+}
+
+
+function buildJSON (str) {
+  response = {'response_type': 'in_channel', 'text': str}
+  return JSON.stringify(response)
 }
 
 function search (text) {
